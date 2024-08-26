@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    /* Color Palette */
+    --light-beige: #f3ecc8; /* first-color */
+    --soft-teal: #78c2c3;   /* second-color */
+    --deep-blue: #3f6699;   /* third-color */
+    --dark-navy: #0d1b4c;   /* fourth-color */
+
+    /* Additional Colors */
+    --white: #ffffff;
+    --black: #000000;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--dark-navy);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    color: var(--light-beige);
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px var(--shadow-color);
+}
+
+.todo-app {
+    background-color: var(--light-beige);
+    width: 300px;
+    height: 350px;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    padding: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    cursor: pointer;
+    width: 100px;
+    margin: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    background: linear-gradient(45deg, var(--soft-teal), var(--deep-blue));
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, var(--deep-blue), var(--soft-teal));
+}
+
+.large-btn {
+    width: 80%;
+    font-size: 1.2rem;
+    align-self: center;
+    justify-self: center;
+}
+
+.close-task-form-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--deep-blue);
+    transition: color 0.3s ease;
+}
+
+.close-task-form-btn:hover {
+    color: var(--soft-teal);
+}
+
+.close-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.task-form {
+    background-color: var(--light-beige);
+    border-radius: 15px;
+    padding: 25px 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.task-form-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.task-form-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.task-form-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.task-form-label,
+#title-input,
+#date-input,
+#description-input {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-navy);
+}
+
+
+
+#title-input,
+#date-input,
+#description-input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 2px;
+    font-family: 'Noto Serif', serif; /* Apply Noto Serif font */
+}
+
+#confirm-close-dialog {
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 15px;
+    font-family: 'Noto Serif', serif; /* Apply Noto Serif font */
+}
+
+.confirm-close-dialog-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.discard-message-text {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#tasks-container {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.task {
+    background-color: var(--white);
+    color: var(--dark-navy);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+.task:hover {
+    transform: translateY(-2px);
+}
+.hidden {
+    display: none;
+}
+
+
+@media (min-width: 1px) {
+    .todo-app,
+    .task-form {
+        width: 500px;
+        padding: 30px 25px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+        padding: 15px 25px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+        font-size: 1.1rem;
+        padding: 15px 20px;
+    }
+}
